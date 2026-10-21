@@ -121,12 +121,36 @@ footer{background:#161819;color:#80868a;padding:22px 0;font-size:.85rem}
 <div class="msg" id="m" role="status" aria-live="polite"></div>
 </form></div></section>
 
-<footer><div class="c">© Бригада отделочников, Чебоксары. Демо-прототип сайта.</div></footer>
+<footer><div class="c">© Бригада отделочников, Чебоксары.</div></footer>
 <a class="fab" id="fab" href="tel:+79033466291">Позвонить</a>
 
 <script>
-var rooms=[["Гостиная","#d9d3c8","#b9ae9c"],["Спальня","#cfd6d2","#9fb0a8"],["Кухня","#e0d4cb","#c4a58f"]];
-document.getElementById("port").innerHTML=rooms.map(function(r){return '<div class="shot"><svg viewBox="0 0 400 260"><rect width="400" height="260" fill="'+r[1]+'"/><rect y="190" width="400" height="70" fill="#8a7d6d"/><rect x="40" y="40" width="110" height="110" fill="#f4f1ea" stroke="#fff" stroke-width="6"/><path d="M95 40v110M40 95h110" stroke="#fff" stroke-width="4"/><rect x="190" y="140" width="170" height="60" rx="8" fill="'+r[2]+'"/><rect x="190" y="110" width="170" height="40" rx="8" fill="'+r[2]+'" opacity=".7"/><circle cx="330" cy="70" r="26" fill="#e8702a" opacity=".85"/></svg><div><b>'+r[0]+'</b><small>Пример · подготовка стен под покраску</small></div></div>'}).join("");
+<script>
+var rooms = [
+  {
+    name: "Гостиная",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80",
+    caption: "Ровные стены, подготовка под покраску"
+  },
+  {
+    name: "Спальня",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80",
+    caption: "Обои и аккуратные стыки"
+  },
+  {
+    name: "Кухня",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+    caption: "Современный интерьер с окрашенными стенами"
+  }
+];
+
+document.getElementById("port").innerHTML = rooms.map(function(r) {
+  return '<div class="shot">' +
+    '<img src="' + r.image + '" alt="' + r.name + '" style="display:block;width:100%;height:237px;object-fit:cover;">' +
+    '<div><b>' + r.name + '</b><small>' + r.caption + '</small></div>' +
+  '</div>';
+}).join("");
+</script>
 document.getElementById("f").addEventListener("submit", async function(e) {
   e.preventDefault();
 
